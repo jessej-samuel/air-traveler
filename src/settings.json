@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "name": "Home",
+      "path": "/"
+    },
+    {
+      "name": "Login",
+      "path": "/login"
+    }
+  ]
+}

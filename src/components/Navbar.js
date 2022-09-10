@@ -2,21 +2,7 @@ import "./Navbar.css";
 import { AppBar, Toolbar, Typography, IconButton, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
-
-const routes = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "Dashboard",
-    path: "/dashboard",
-  },
-  {
-    name: "Login",
-    path: "/login",
-  },
-];
+import settings from "../settings.json";
 
 const Navbar = () => {
   return (
@@ -35,7 +21,7 @@ const Navbar = () => {
           AirTraveler
         </Typography>
 
-        {routes.map((route) => (
+        {settings.routes.map((route) => (
           <Button color="inherit" component={Link} to={route.path}>
             {route.name}
           </Button>
