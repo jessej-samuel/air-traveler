@@ -1,8 +1,16 @@
 import "./Navbar.css";
-import { AppBar, Toolbar, Typography, IconButton, Button } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+  Icon,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import settings from "../settings.json";
+import AirplanemodeActiveOutlinedIcon from "@mui/icons-material/AirplanemodeActiveOutlined";
 
 const Navbar = () => {
   return (
@@ -17,6 +25,7 @@ const Navbar = () => {
         >
           <MenuIcon />
         </IconButton>
+        <AirplanemodeActiveOutlinedIcon fontSize="large" className="nav-logo" />
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           AirTraveler
         </Typography>

@@ -1,4 +1,10 @@
 .text-link {
-    color: inherit;
-    text-decoration: inherit;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.nav-logo {
+  margin-right: 2px;
+  transform: rotate(45deg);
+  border-radius: 999px;
 }
