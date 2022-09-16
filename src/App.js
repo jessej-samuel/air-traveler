@@ -1,19 +1,18 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <>
-      {/* <ShowAirports />
-      <SortBased />
-      <RouteVisualizer />
-      <Reviews />
-      <Selector> */}
-        {/* Source Selection
-        Destination Selection */}
-      {/* </Selector> */}
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
