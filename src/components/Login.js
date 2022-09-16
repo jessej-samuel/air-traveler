@@ -13,7 +13,6 @@ import { ReactComponent as LoginSvg } from "../assets/login.svg";
 import "./Login.css";
 
 const Login = () => {
-  const theme = useTheme();
   return (
     <Container maxWidth="xs">
       <Card

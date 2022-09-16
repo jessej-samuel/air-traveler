@@ -1,0 +1,7 @@
+.dashboard-container {
+  display: grid;
+  padding-left: 4px;
+  padding-right: 4px;
+  /* background-color: grey; */
+  grid-template-columns: 1fr;
+}
