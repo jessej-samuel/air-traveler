@@ -1,0 +1,9 @@
+.text-fields {
+  width: fit-content;
+  display: grid;
+}
+
+.text-fields-container {
+  display: flex;
+  justify-content: center;
+}

@@ -2,22 +2,20 @@ import {
   Box,
   Button,
   Container,
-  Paper,
-  Typography,
   Card,
   TextField,
   CardActions,
   CardContent,
-  CssBaseline,
   CardMedia,
   useTheme,
 } from "@mui/material";
 import { ReactComponent as LoginSvg } from "../assets/login.svg";
+import "./Login.css";
 
 const Login = () => {
   const theme = useTheme();
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="xs">
       <Card
         sx={{ paddingBottom: 2, marginTop: 4 }}
         variant="outlined"
@@ -25,14 +23,15 @@ const Login = () => {
       >
         <CardMedia>
           <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
-            <LoginSvg height={300} fill={theme.palette.secondary.main} />
+            <img src={"./logo.png"} alt="Login" width="60%" />
           </Box>
         </CardMedia>
-        <CardContent>
+        <CardContent className="text-fields-container">
           <Box
             sx={{
               "& > :not(style)": { m: 1, width: "25ch" },
             }}
+            className="text-fields"
           >
             <TextField
               id="outlined-basic"
