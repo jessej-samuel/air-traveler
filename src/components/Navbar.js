@@ -5,7 +5,6 @@ import {
   Typography,
   IconButton,
   Button,
-  Icon,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
@@ -30,8 +29,8 @@ const Navbar = () => {
           AirTraveler
         </Typography>
 
-        {settings.routes.map((route) => (
-          <Button color="inherit" component={Link} to={route.path}>
+        {settings.routes.map((route, index) => (
+          <Button color="inherit" component={Link} to={route.path} key={index}>
             {route.name}
           </Button>
         ))}
