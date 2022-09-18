@@ -1,18 +1,21 @@
 import { AirplaneTicket } from "@mui/icons-material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./ShowAirports.css";
 
 const ShowAirports = () => {
   const [airports, setAirports] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [limit, setLimit] = useState(5);
+  const [clicked, setClicked] = useState(false);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    const fetchAirports = async () => {
+    const fetchAirports = async (limit) => {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://api.openaq.org/v1/locations?country=US&limit=5"
+          `https://api.openaq.org/v1/locations?country=IN&limit=${limit}`
         );
         const { results } = await response.json();
         setAirports(results);
@@ -22,14 +25,14 @@ const ShowAirports = () => {
       setLoading(false);
     };
 
-    fetchAirports();
-  }, []);
+    fetchAirports(limit);
+  }, [limit]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div class="container">
+    <div ref={containerRef} class="container">
       <h1 className="header">
         Airports <AirplaneTicket fontSize="large" />
       </h1>
@@ -45,11 +48,20 @@ const ShowAirports = () => {
           ))}
         </ul>
       </div>
-      <div className="footer">
-        <span onClick={(e) => {}} className="view-all">
-          Show more
-        </span>
-      </div>
+      {!clicked ? (
+        <div className="footer">
+          <span
+            onClick={() => {
+              setLimit(50);
+              setClicked(true);
+              containerRef.current.style.gridTemplateRows = "64px 1fr";
+            }}
+            className="view-all"
+          >
+            Load more
+          </span>
+        </div>
+      ) : null}
     </div>
   );
 };
