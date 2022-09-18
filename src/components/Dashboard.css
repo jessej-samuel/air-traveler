@@ -1,6 +1,7 @@
 h1 {
-  font-weight: 400;
-  font-size: medium;
+  font-weight: 500;
+  font-size: x-large;
+  padding-left: 16px;
 }
 
 h2 {
@@ -10,17 +11,13 @@ h2 {
 }
 
 .dashboard-container {
-  display: grid;
   padding-left: 1.2em;
   padding-right: 1.2em;
-  grid-template-columns: 1fr;
-  grid-template-rows: 64px repeat(5, 1fr);
-  background-color: rgb(246, 246, 255);
-  height: calc(100vh - 64px);
 }
 
 .dashboard-container > div {
-  padding: 0px;
+  padding: 0;
+  margin: 0;
   background-color: white;
   border-radius: 6px;
   border: 1px solid #d0d7de;
@@ -29,17 +26,34 @@ h2 {
 /* for pc */
 @media (min-width: 768px) {
   .dashboard-container {
+    display: grid;
+    column-gap: 1em;
+    row-gap: 1em;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, calc((100vh-64px) / 8));
-    height: calc(100vh - 64px);
-    background-color: blue;
-    overflow: scroll;
+    grid-template-rows: repeat(6, calc(100vh / 8 - 64px / 8));
+    height: calc(100vh - 64px - 64px);
+    /* background-color: blue; */
   }
 }
 
 /* for tablet */
 @media (min-width: 1024px) {
   .dashboard-container {
+    /* background-color: rgba(0, 128, 0, 0.637); */
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: repeat(6, 1fr);
+    height: calc(100vh - 64px - 64px);
+  }
+}
+
+/* for big screen */
+@media (min-width: 1280px) {
+  .dashboard-container {
+    /* background-color: rgba(0, 128, 0, 0.637); */
+    display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    height: calc(100vh - 64px - 64px);
   }
 }
