@@ -12,7 +12,7 @@ const ShowAirports = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://api.openaq.org/v1/locations?country=US&limit=10"
+          "https://api.openaq.org/v1/locations?country=US&limit=5"
         );
         const { results } = await response.json();
         setAirports(results);
@@ -41,13 +41,14 @@ const ShowAirports = () => {
                 <h2>{airport.city}</h2>
                 <p>{airport.location}</p>
               </li>
-              <li key={airport.id} className="airport-item">
-                <h2>{airport.city}</h2>
-                <p>{airport.location}</p>
-              </li>
             </>
           ))}
         </ul>
+      </div>
+      <div className="footer">
+        <span onClick={(e) => {}} className="view-all">
+          Show more
+        </span>
       </div>
     </div>
   );

@@ -1,15 +1,15 @@
 .container {
   margin: 0;
   padding: 0;
-  height: calc(100vh - 128px);
+  height: fit-content;
   display: grid;
-  grid-template-rows: 64px repeat(6, 1fr);
+  grid-template-rows: 64px 1fr 48px;
   /* border: 1px solid black; */
 }
 
 .airport-list-container {
-  grid-row: 2/ -1;
-  overflow-y: scroll !important;
+  grid-row: 2/ -2;
+  overflow-y: scroll;
   scroll-behavior: auto;
   scrollbar-width: 1px;
   scrollbar-color: #000000 #ffffff;
@@ -42,6 +42,22 @@ ul.airport-list {
   margin: 0;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span.view-all {
+  font-size: small;
+  color: #1976d2;
+}
+
+span.view-all:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .container > .header {
   font-size: large;
   display: flex;
@@ -59,9 +75,9 @@ ul.airport-list {
 @media (min-width: 768px) {
   .container {
     margin: 0;
-    height: 100%;
     grid-column: span 4;
     grid-row: span 4;
+    /* background-color: #1976d2; */
     /* grid-column: 1 / 4;
     grid-row-start: 1; */
     /* border: 1px solid black; */
@@ -71,7 +87,6 @@ ul.airport-list {
 /* for tablet */
 @media (min-width: 1024px) {
   .container {
-    height: 400px;
     width: 100%;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
