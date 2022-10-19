@@ -7,6 +7,10 @@
     {
       "name": "Login",
       "path": "/login"
+    },
+    {
+      "name": "Graph",
+      "path": "/graph"
     }
   ]
 }
