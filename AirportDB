@@ -1,0 +1,84 @@
+CREATE DATABASE  IF NOT EXISTS `airoptimus` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `airoptimus`;
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+--
+-- Host: localhost    Database: airoptimus
+-- ------------------------------------------------------
+-- Server version	8.0.31
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `airports`
+--
+
+DROP TABLE IF EXISTS `airports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `airports` (
+  `Airport_id` int NOT NULL,
+  `Airport_name` varchar(25) NOT NULL,
+  `Airport_country` varchar(30) NOT NULL,
+  `Airport_city` varchar(45) NOT NULL,
+  `x_value` float NOT NULL,
+  `y_value` float NOT NULL,
+  PRIMARY KEY (`Airport_id`),
+  UNIQUE KEY `Airpot_id_UNIQUE` (`Airport_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `airports`
+--
+
+LOCK TABLES `airports` WRITE;
+/*!40000 ALTER TABLE `airports` DISABLE KEYS */;
+INSERT INTO `airports` VALUES (1001,'Riley\'s Airport','Australia','Canberra',77.7,73.5),(1002,'Mason\'s Airport','Australia','Darwin ',36.6,8.9),(1003,'Amelia\'s Airport','Australia','Brisbane',84.9,50.4),(1004,'Liam\'s Airport','Australia','Adelalde',56,70.7),(1005,'Harper\'s Airport','Australia','Tasmana',72.2,92.2),(1006,'Charlotte\'s Airport','Australia','Tamworth',81.3,60.3),(1007,'Ava\'s Airport','Australia','Perth',9.5,59.7),(1008,'Oliver\'s Airport','Australia','Melbourne',69.6,77.9),(1009,'Wendy\'s Airport','Australia','Sydney',80,69);
+/*!40000 ALTER TABLE `airports` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `path`
+--
+
+DROP TABLE IF EXISTS `path`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `path` (
+  `Path_name` varchar(2) NOT NULL,
+  `From` int NOT NULL,
+  `To` int NOT NULL,
+  `Distance` float DEFAULT NULL,
+  PRIMARY KEY (`Path_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `path`
+--
+
+LOCK TABLES `path` WRITE;
+/*!40000 ALTER TABLE `path` DISABLE KEYS */;
+INSERT INTO `path` VALUES ('a',1005,1001,19.49),('b',1001,1002,76.56),('c',1002,1007,13.77),('d',1007,1003,75.97),('e',1003,1008,31.32),('f',1008,1006,21.21),('g',1006,1009,8.89),('h',1009,1004,24.06),('i',1004,1003,35.31),('j',1005,1008,14.48),('k',1005,1007,70.6),('l',1006,1001,13.77),('m',1006,1005,33.26),('n',1009,1008,13.46),('o',1007,1004,47.78),('p',1008,1002,76.61),('q',1002,1003,10.54),('r',1008,1007,63.08),('s',1008,1004,15.65),('t',1006,1002,68.11);
+/*!40000 ALTER TABLE `path` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-10-27 20:14:48
